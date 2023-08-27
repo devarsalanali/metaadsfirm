@@ -3,7 +3,7 @@ import headsetVr from "../assets/images/headset-vr.png"
 import "./Card.css"
 import { Tilt } from "react-tilt"
 
-export default function Card({ title, description, onClick }) {
+export default function Card({ title, description, href }) {
 	const defaultOptions = {
 		reverse: true, // reverse the tilt direction
 		max: 35, // max tilt rotation (degrees)
@@ -17,24 +17,25 @@ export default function Card({ title, description, onClick }) {
 	}
 	return (
 		<Tilt options={defaultOptions}>
-			<article
-				style={{
-					border: "30px solid transparent",
-					borderImageSource: 'url("/images/gradient-border.png")',
-					borderImageSlice: "30 fill",
-					borderImageRepeat: "round",
-					zIndex: 2,
-				}}
-				onClick={onClick}
-			>
-				<div className="rounded-lg bg-primary/[.05] backdrop-blur-[15px] p-[30px] m-[-28px] py-10 h-[26rem]">
-					<img src={headsetVr} className="w-[8rem] mx-auto mb-8" alt="" />
-					<div className="text-center">
-						<h4 className="text-xl ff-against mb-2">{title}</h4>
-						<p className="font-light">{description}</p>
+			<a href={href}>
+				<article
+					style={{
+						border: "30px solid transparent",
+						borderImageSource: 'url("/images/gradient-border.png")',
+						borderImageSlice: "30 fill",
+						borderImageRepeat: "round",
+						zIndex: 2,
+					}}
+				>
+					<div className="rounded-lg bg-primary/[.05] backdrop-blur-[15px] p-[30px] m-[-28px] py-10 h-[26rem]">
+						<img src={headsetVr} className="w-[8rem] mx-auto mb-8" alt="" />
+						<div className="text-center">
+							<h4 className="text-xl ff-against mb-2">{title}</h4>
+							<p className="font-light">{description}</p>
+						</div>
 					</div>
-				</div>
-			</article>
+				</article>
+			</a>
 		</Tilt>
 	)
 }

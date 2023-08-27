@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react"
+import { HashLink } from "react-router-hash-link"
+import { useLocation } from "react-router-dom"
 
 export default function Navbar() {
 	const [isOpen, setIsOpen] = useState(false)
+	const location = useLocation()
+
 	const toggleOpen = () => {
 		setIsOpen(!isOpen)
 	}
-
 	useEffect(() => {
 		if (isOpen) {
 			document.documentElement.classList.add("menu-open")
@@ -14,13 +17,17 @@ export default function Navbar() {
 		}
 	}, [isOpen])
 
+	useEffect(() => {
+		setIsOpen(false)
+	}, [location])
+
 	return (
 		<header className="sticky top-0 bg-black/[.4] backdrop-blur-[20px] z-[100] px-4">
 			<nav className="md:mx-20">
 				<div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 relative">
-					<a href="#">
+					<HashLink href="/#">
 						<img src="/images/logo.png" className="w-[50px]" alt="Meta Logo" />
-					</a>
+					</HashLink>
 					<button
 						type="button"
 						className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg z-[1000]"
@@ -41,36 +48,36 @@ export default function Navbar() {
 						<div className="grid content-center h-full w-full">
 							<ul className="font-medium flex flex-col items-center mb-40">
 								<li>
-									<a
-										href="#"
+									<HashLink
+										to="/"
 										className="block py-2 pl-3 pr-4 rounded hover:bg-gray-700 hover:text-white text-xl ff-against"
 									>
 										Home
-									</a>
+									</HashLink>
 								</li>
 								<li>
-									<a
-										href="#bids"
+									<HashLink
+										to="/#services"
 										className="block py-2 pl-3 pr-4 rounded hover:bg-gray-700 hover:text-white text-xl ff-against"
 									>
-										Auctions
-									</a>
+										Services
+									</HashLink>
 								</li>
 								<li>
-									<a
-										href="#how-it-works"
+									<HashLink
+										to="/#how-it-works"
 										className="block py-2 pl-3 pr-4 rounded hover:bg-gray-700 hover:text-white text-xl ff-against"
 									>
 										How it Works
-									</a>
+									</HashLink>
 								</li>
 								<li>
-									<a
-										href="#faq"
+									<HashLink
+										to="/feature/contact"
 										className="block py-2 pl-3 pr-4 rounded hover:bg-gray-700 hover:text-white text-xl ff-against"
 									>
-										FAQ
-									</a>
+										Contact Us
+									</HashLink>
 								</li>
 							</ul>
 						</div>

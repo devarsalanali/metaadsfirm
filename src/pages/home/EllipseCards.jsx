@@ -7,7 +7,10 @@ export default function EllipseCards() {
 		navigate("/feature/metaversewebbuilders")
 	}
 	return (
-		<section className="mt-40 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 max-lg:gap-20">
+		<section
+			className="mt-40 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 max-lg:gap-20 mt-[-5rem] pt-[15rem]"
+			id="how-it-works"
+		>
 			<EllipseCard bottomTitle="Idendtity Agreement" onClick={handleClick}>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
