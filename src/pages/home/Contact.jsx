@@ -15,10 +15,10 @@ export default function Contact() {
 	})
 
 	const handleSendMail = async () => {
-		if (!captchaValue) {
-			alert("Please complete the reCAPTCHA verification.")
-			return
-		}
+		// if (!captchaValue) {
+		// 	alert("Please complete the reCAPTCHA verification.")
+		// 	return
+		// }
 
 		try {
 			await emailjs.send(
@@ -85,10 +85,10 @@ export default function Contact() {
 						value={formData.message}
 						onChange={handleChange}
 					/>
-					<ReCAPTCHA
+					{/* <ReCAPTCHA
 						sitekey={import.meta.env.VITE_CAPTCHA_SITE_KEY}
 						onChange={handleCaptchaChange}
-					/>
+					/> */}
 					<button
 						className="ff-against bg-primary rounded-xl p-3 md:p-4 mt-5 md:mt-10"
 						onClick={handleSendMail}
